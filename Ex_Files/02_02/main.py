@@ -11,3 +11,8 @@ print(formattedLiteral)
 name = "Python Sr."
 placeholderFormattedLiteral = "Hello, {}!"
 print(placeholderFormattedLiteral.format(name))
+
+print(greet.upper())
+print(greet.lower())
+
+print(greet.replace("World", "Earth"))

@@ -1,7 +1,9 @@
 import csv
 from pprint import pprint
+from datetime import datetime
 
-# Objective: Read CSV file laureates.csv & find person with the surname as "Einstein"
+# Objective 1: Read CSV file laureates.csv & find laureate having surname as "Einstein"
+# Objective 2: Calculate the age of laureate when they received the Noble prize
 #
 # Example CSV
 #   name,surname,born,died,birthplace,motivation,category,year
@@ -25,6 +27,15 @@ with open("laureates.csv", "r") as f:
   laureates = list(reader)
 
 for laureate in laureates:
+  # Objective 1: Find laureate
   if laureate["surname"] == "Einstein":
+    print("-# OBJECTIVE 1 #-")
     pprint(laureate)
+
+    # Objective 2: Calculate age
+    print("-= OBJECTIVE 2 =-")
+    dateOfBirth = datetime.strptime(laureate["born"], "%Y-%m-%d")
+    dateOfAward = datetime.strptime(laureate["year"], "%Y")
+    age = dateOfAward.year - dateOfBirth.year
+    print(f'{age}yrs in the "{laureate["category"].capitalize()}" category')
     break

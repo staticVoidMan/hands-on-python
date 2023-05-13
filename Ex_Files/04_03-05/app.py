@@ -15,10 +15,11 @@ def index():
 def filterLaureates():
   results = []
 
-  searchString = request.args.get("surname").strip()
+  searchString = request.args.get("flName").strip()
   for laureate in laureates:
-    fullString = laureate["surname"]
+    fullString = f'{laureate["name"]} {laureate["surname"]}'
     if searchString.lower() in fullString.lower():
+      print(f"found {searchString} in {fullString}")
       results.append(laureate)
   return jsonify(results)
 

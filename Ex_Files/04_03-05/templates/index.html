@@ -95,7 +95,7 @@
       if (searchInput.length < 2) {
         return
       }
-      fetch('/laureates/?surname=' + e.target.value)
+      fetch('/laureates/?flName=' + e.target.value)
         .then(res => res.json())
         .then(data => {
           results.innerHTML = '';
